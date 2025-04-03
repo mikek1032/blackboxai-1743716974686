@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galactic Shooter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-blue-900 to-black min-h-screen flex flex-col items-center justify-center text-white overflow-hidden">
+    <div class="text-center space-y-8">
+        <h1 class="text-6xl font-bold tracking-wider pulse-animation">
+            GALACTIC <span class="text-yellow-400">SHOOTER</span>
+        </h1>
+        <p class="text-xl opacity-80">Defend the galaxy from alien invaders</p>
+        
+        <button id="startBtn" class="mt-12 px-8 py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-full text-xl transition-all transform hover:scale-105">
+            START MISSION <i class="fas fa-rocket ml-2"></i>
+        </button>
+
+        <div class="mt-16">
+            <button id="howToPlayBtn" class="px-4 py-2 border border-white rounded-md opacity-70 hover:opacity-100 transition">
+                <i class="fas fa-question-circle mr-2"></i> HOW TO PLAY
+            </button>
+        </div>
+    </div>
+
+    <!-- How to Play Modal -->
+    <div id="howToPlayModal" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+        <div class="bg-gray-900 p-8 rounded-lg max-w-md border border-yellow-400">
+            <h2 class="text-2xl font-bold mb-4 text-yellow-400">HOW TO PLAY</h2>
+            <ul class="space-y-3">
+                <li><i class="fas fa-arrow-left mr-2"></i> <i class="fas fa-arrow-right mr-2"></i> Move your spaceship</li>
+                <li><i class="fas fa-arrow-up mr-2"></i> Boost speed (temporary)</li>
+                <li><i class="fas fa-space-shuttle mr-2"></i> SPACE to shoot lasers</li>
+                <li>Destroy enemies to score points</li>
+                <li>Survive as long as possible!</li>
+            </ul>
+            <button id="closeModalBtn" class="mt-6 px-4 py-2 bg-yellow-500 text-black rounded-md w-full">
+                GOT IT!
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('startBtn').addEventListener('click', () => {
+            window.location.href = 'game.html';
+        });
+
+        const modal = document.getElementById('howToPlayModal');
+        document.getElementById('howToPlayBtn').addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        document.getElementById('closeModalBtn').addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
