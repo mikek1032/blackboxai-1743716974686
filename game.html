@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galactic Shooter - Mission</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        canvas {
+            display: block;
+        }
+        #gameUI {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: white;
+            font-family: Arial, sans-serif;
+            pointer-events: none;
+        }
+        #score {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+        }
+        #lives {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+        }
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameUI">
+        <div id="score">SCORE: 0</div>
+        <div id="lives">
+            <i class="fas fa-heart text-red-500"></i>
+            <i class="fas fa-heart text-red-500"></i>
+            <i class="fas fa-heart text-red-500"></i>
+        </div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="gameOver" class="text-white">
+        <h1 class="text-4xl font-bold mb-4">MISSION FAILED</h1>
+        <p class="text-xl mb-6">Your score: <span id="finalScore">0</span></p>
+        <button id="restartBtn" class="px-6 py-3 bg-yellow-500 text-black font-bold rounded-md pointer-events-auto">
+            TRY AGAIN
+        </button>
+        <button id="saveScoreBtn" class="px-6 py-3 bg-blue-500 text-white font-bold rounded-md ml-4 pointer-events-auto">
+            SAVE SCORE
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
